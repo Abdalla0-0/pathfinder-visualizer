@@ -31,8 +31,7 @@ def bfs(graph, start, end):
                 visited.add(i)
                 queue.append(i)
 
-    if end not in order:
-        return "Not Found"
+    return "Not Found"
 
 
-print(bfs(graph, "A", "Z"))
+print(bfs(graph, "A", "C"))
