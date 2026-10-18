@@ -23,7 +23,7 @@ while placed < 5:
     if grid[r][c] == 0:
         grid[r][c] = 1
         placed += 1
-print(grid)
+# print(grid)
 
 
 def get_neighbors(grid, r, c):
@@ -55,6 +55,7 @@ def bfs(grid, start, end):
     #     for each neighbor of it (graph[that item]):
     #         if not visited: add to visited, add to queue
     order = []
+    came_from = {}
     queue = deque([start])
     visited = set({start})
 
@@ -63,16 +64,31 @@ def bfs(grid, start, end):
         order.append(q)
         r, c = q
         if q == end:
-            return order
+            return order, came_from
         for i in get_neighbors(grid, r, c):
             if i not in visited:
                 visited.add(i)
                 queue.append(i)
+                came_from[i] = q
 
-    return "Not Found"
+    return order, came_from
 
 
-def show(grid, order):
+def get_path(came_from, start, end):
+    path = []
+    cell = end
+
+    while cell != start:
+        path.append(cell)
+        cell = came_from[cell]
+
+    path.append(start)
+    path.reverse()
+
+    return path
+
+
+def show(grid, order, path):
     # 1. make a text grid: "#" for walls, "." for open cells
     # 2. loop over order and put each step number in its cell
     # 3. print it row by row
@@ -88,14 +104,28 @@ def show(grid, order):
                 textGrid[r][c] = "#"
 
     for step, (r, c) in enumerate(order):
-        textGrid[r][c] = step
+        textGrid[r][c] = step + 1
+    for r, c in path:
+        textGrid[r][c] = "*"
 
-    for r in textGrid:
-        print(r)
+    for row in textGrid:
+        line = ""
+        for r in row:
+            line += str(r).rjust(3)
+        print(line)
 
 
-order = bfs(grid, (0, 0), (4, 5))
-# print(order)
-show(grid, order)
+order, came_from = bfs(grid, (0, 0), (4, 5))
 
-print(bfs(grid, (0, 0), (4, 5)))
+path = []
+
+if (4, 5) in came_from:
+    path = get_path(came_from, (0, 0), (4, 5))
+else:
+    print("\033[4;1;31mNo Path\033[0m")
+
+
+show(grid, order, path)
+
+
+# print(bfs(grid, (0, 0), (4, 5)))
