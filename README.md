@@ -60,5 +60,5 @@ Grid size and cell size are the `ROWS`, `COLS` and `CELL` constants at the top o
 - Random walls don't guarantee a path exists, so "No Path" shows up sometimes.
 - Walls are scattered, not a true maze with corridors. A maze generator (for example randomized DFS) would be a good next step.
 - Only BFS is implemented. Adding Dijkstra or A* would let you compare algorithms on the same grid.
-- Might Implement Bi-directional BFS.
+- Might try/implement Bi-directional BFS and see the diiference between BFS and Bidirectional BFS
 - Diagonal moves and weighted cells are not supported. Weighted and Diagonals are going to be implemented after understanding the logic behind it.

@@ -4,7 +4,7 @@ import tkinter as tk
 from pathfinder import bfs, get_path
 
 ROWS, COLS = 15, 20
-CELL = 20
+CELL = 24
 DELAY = 15  # ms between animation steps
 
 OPEN_COLOR = "#e2e8f0"
