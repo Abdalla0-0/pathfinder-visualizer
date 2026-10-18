@@ -7,7 +7,7 @@ ROWS, COLS = 15, 20
 CELL = 24
 DELAY = 15  # ms between animation steps
 
-OPEN_COLOR = "#e2e8f0"
+OPEN_COLOR = "#334155"
 WALL_COLOR = "#0f172a"
 START_COLOR = "#22c55e"
 END_COLOR = "#ef4444"
