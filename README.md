@@ -20,6 +20,14 @@ A breadth-first search (BFS) pathfinder on a grid, with a tkinter window that an
 
 Keeping them separate means the same BFS code can be reused with a text printout, a different GUI, or tests.
 
+## Screenshots  
+
+![Pathfinder drawing walls](screenshots/walls.png)  
+
+![Pathfinder performing a search](screenshots/searching.png)  
+
+![Pathfinder with walls and shortest path](screenshots/pathfinder.png)  
+
 ## How to run
 
 Needs Python 3 only (tkinter ships with it). Keep both files in the same folder:
